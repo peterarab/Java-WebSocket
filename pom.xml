@@ -29,6 +29,8 @@
         <sonar.projectKey>org.java-websocket:Java-WebSocket</sonar.projectKey>
         <sonar.organization>marci4-github</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
     </properties>
     <licenses>
         <license>
@@ -96,12 +98,23 @@
                     <version>${maven.compiler.plugin.version}</version>
                     <executions>
                         <execution>
+                            <id>default-testCompile</id>
+                            <goals>
+                                <goal>testCompile</goal>
+                            </goals>
+                            <configuration>
+                                <source>${maven.compiler.source}</source>
+                                <target>${maven.compiler.target}</target>
+                            </configuration>
+                        </execution>
+                        <execution>
                             <id>default-compile</id>
                             <goals>
                                 <goal>compile</goal>
                             </goals>
                             <configuration>
-                                <release>7</release>
+                                <source>${maven.compiler.source}</source>
+                                <target>${maven.compiler.target}</target>
                             </configuration>
                         </execution>
 
